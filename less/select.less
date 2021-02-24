@@ -1,0 +1,187 @@
+
+@font-family: Montserrat, Helvetica, sans-serif;
+@brand-first-color: #eb5b25;
+@brand-second-color: #b14b25;
+@brand-third-color: #004797;
+@brand-fourth-color: #F9C332;
+@black: #000;
+@gray-1: #F5F5F5;
+@gray-2: #EDF1F6;
+@gray-3: #E0E0E0;
+@gray-4: #959595;
+@gray-5: #5C5C5C;
+@gray-6: #444444;
+@white: #FFF;
+@mobile-breakpoint: 980px;
+
+:root {
+	--garantia-centros-font-family: @font-family;
+	--garantia-centros-first-color: @brand-first-color;
+	--garantia-centros-second-color: @brand-second-color;
+	--garantia-centros-third-color: @brand-third-color;
+	--garantia-centros-fourth-color: @brand-fourth-color;
+	--garantia-centros-black: @black;
+	--garantia-centros-gray-1: @gray-1;
+	--garantia-centros-gray-2: @gray-2;
+	--garantia-centros-gray-3: @gray-3;
+	--garantia-centros-gray-4: @gray-4;
+	--garantia-centros-gray-5: @gray-5;
+	--garantia-centros-gray-6: @gray-6;
+	--garantia-centros-white: @white;
+	--garantia-centros-breakpoint: @mobile-breakpoint;
+}
+
+.custom-select {
+
+    &__arrow,
+    &__container,
+    &__label,
+    &__options,
+    &__option,
+    &__value {
+        box-sizing: border-box;
+    }
+
+    &__arrow {
+        border-left: 1px solid var(--garantia-centros-third-color);
+        bottom: 8px;
+        color: var(--garantia-centros-third-color);
+        cursor: pointer;
+        display: flex;
+        font-size: 22px;
+        justify-content: center;
+        line-height: 24px;
+        position: absolute;
+        right: 0;
+        top: 8px;
+        width: 38px;
+    }
+
+    &__container {
+        border-radius: 4px;
+        display: inline-flex;
+        outline: none;
+        position: relative;
+        width: 100%;
+
+        &.disabled {
+            &>.custom-select {
+                &__arrow {
+                    border-left: 1px solid var(--garantia-centros-gray-2);
+                    color: var(--garantia-centros-gray-2);
+                }
+
+                &__label {
+                    display: none;
+                }
+
+                &__value {
+                    color: var(--garantia-centros-gray-2);
+                    cursor: not-allowed;
+
+                    &:hover {
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+
+        &:focus {
+            outline: none;
+
+            &:not(.disabled)>.custom-select__value {
+                border: 1px solid var(--garantia-centros-third-color);
+                box-shadow: 0px 0px 4px rgba(@brand-third-color, .4);
+            }
+        }
+    }
+
+    &__label {
+        background-color: var(--garantia-centros-white);
+        color: var(--garantia-centros-gray-5);
+        font-size: 11px;
+        left: .5em;
+        padding: 0 .5em;
+        position: absolute;
+        top: -7px;
+    }
+
+    &__option {
+        color: var(--garantia-centros-gray-4);
+        cursor: pointer;
+        font-size: 14px;
+        padding: .25em .5em;
+        line-height: 32px;
+
+        &:hover {
+            background-color: var(--garantia-centros-gray-1);
+        }
+
+        &[data-value="0"] {
+            cursor: not-allowed;
+        }
+    }
+
+    &__options {
+        display: none;
+        background-color: var(--garantia-centros-white);
+        border-radius: 0 0 4px 4px;
+        box-shadow: 0 4px 4px rgba(@black, .3);
+        left: .25em;
+        list-style: none;
+        margin: 0;
+        max-height: 300px;
+        padding: 0;
+        position: absolute;
+        top: calc(~"100% - .25em");
+        width: calc(~"100% - .5em");
+        z-index: 1;
+        .scroll();
+
+        &.show {
+            display: block;
+        }
+    }
+
+    &__value {
+        background-color: var(--garantia-centros-white);
+        border: 1px solid var(--garantia-centros-gray-2);
+        border-radius: 4px;
+        color: var(--garantia-centros-gray-4);
+        cursor: pointer;
+        font-size: 16px;
+        height: 40px;
+        line-height: 22px;
+        outline: none;
+        overflow: hidden;
+        padding: 8px 52px 8px 16px;
+        text-overflow: ellipsis;
+        transition: .25s all ease-in-out;
+        user-select: none;
+        white-space: nowrap;
+        width: 100%;
+        width: -webkit-fill-available;
+
+        &[data-status="filled"] {
+            border: 1px solid var(--garantia-centros-third-color);
+            color: var(--garantia-centros-gray-5);
+        }
+
+        &:hover {
+            box-shadow: 0px 0px 4px rgba(@gray-6, .4)
+        }
+    }
+}
+.scroll() {
+	overflow-x: hidden;
+	overflow-y: auto;
+
+	&::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: rgba(@black, .5);
+		border-radius: 10px;
+	}
+}
