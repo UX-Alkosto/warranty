@@ -1,4 +1,4 @@
-import Select from "./select.js"
+import Select from "https://cdn.jsdelivr.net/gh/ux-alkosto/select@1.0.0/dist/js/select.js"
 
 (function ($, garantiaCentros) {
   let jsonData = {};
@@ -10,7 +10,7 @@ import Select from "./select.js"
     }
     document.querySelectorAll('[data-custom-select').forEach(selectElement => new Select(selectElement))
   })
-  
+
   $(document).ready(function () {
     $("#listado_centros").on('change', function () {
       console.log($(this).val())
