@@ -1,4 +1,4 @@
-import Select from "https://cdn.jsdelivr.net/gh/ux-alkosto/select@1.0.0/dist/js/select.js"
+import Select from "https://cdn.jsdelivr.net/gh/ux-alkosto/select/dist/js/select.js"
 
 (function ($, garantiaCentros) {
   let jsonData = {};
